@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Create User{% endblock %}
+
+{% block content %}
+  <h1>Create a Post</h1>
+  <form action="/users/{{ user.id }}/posts/new" method="post">
+    Title:
+    <input type="text" name="title">
+    Content:
+    <textarea name="content" cols="30" rows="10"></textarea>
+    Posted By:
+    <b>{{ user.get_full_name() }}</b>
+    <hr>
+    <button type="submit" class="save">Add</button>
+  </form>
+  <br>
+  <a href="/users/{{ user.id }}"><button class="cancel">Cancel</button></a>
+{% endblock %}
